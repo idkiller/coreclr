@@ -30,33 +30,42 @@ download_files()
     TIZEN_DOWNLOAD_OPTIONS="-P $TIZEN_TMP_DOWNLOAD_DIR"
     TIZEN_DOWNLOAD_CMD="wget $TIZEN_DOWNLOAD_OPTIONS"
 
+    TIZEN_BASE_ARM="http://download.tizen.org/releases/weekly/tizen/base/latest/repos/arm/packages/armv7l"
+    TIZEN_BASE_NOARCH="http://download.tizen.org/releases/weekly/tizen/base/latest/repos/arm/packages/noarch"
+    TIZEN_MOBILE_ARM="http://download.tizen.org/releases/weekly/tizen/mobile/latest/repos/arm-wayland/packages/armv7l"
+
     # 1. basse packages
-    $TIZEN_DOWNLOAD_CMD http://download.tizen.org/releases/weekly/tizen/3.0-base/tizen-3.0-base_20161223.2/repos/arm/packages/armv7l/gcc-4.9.2-2.2.armv7l.rpm
-    $TIZEN_DOWNLOAD_CMD http://download.tizen.org/releases/weekly/tizen/3.0-base/tizen-3.0-base_20161223.2/repos/arm/packages/armv7l/glibc-2.20-2.1.armv7l.rpm
-    $TIZEN_DOWNLOAD_CMD http://download.tizen.org/releases/weekly/tizen/3.0-base/tizen-3.0-base_20161223.2/repos/arm/packages/armv7l/glibc-devel-2.20-2.1.armv7l.rpm
-    $TIZEN_DOWNLOAD_CMD http://download.tizen.org/releases/weekly/tizen/3.0-mobile/tizen-3.0-mobile_20161223.1/repos/arm-wayland/packages/armv7l/libicu-devel-57.1-1.2.armv7l.rpm
-    $TIZEN_DOWNLOAD_CMD http://download.tizen.org/releases/weekly/tizen/3.0-base/tizen-3.0-base_20161223.2/repos/arm/packages/noarch/linux-glibc-devel-3.10-1.1.noarch.rpm
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_BASE_ARM/gcc-4.9.2-15.1.armv7l.rpm"
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_BASE_ARM/glibc-2.20-12.1.armv7l.rpm"
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_BASE_ARM/glibc-devel-2.20-12.1.armv7l.rpm"
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_BASE_NOARCH/linux-glibc-devel-3.10-1.3.noarch.rpm"
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_MOBILE_ARM/libicu-devel-57.1-14.2.armv7l.rpm"
 
     # 2. download rpms
-    $TIZEN_DOWNLOAD_CMD http://download.tizen.org/releases/weekly/tizen/3.0-base/tizen-3.0-base_20161223.2/repos/arm/packages/armv7l/lldb-3.8.1-2.3.armv7l.rpm
-    $TIZEN_DOWNLOAD_CMD http://download.tizen.org/releases/weekly/tizen/3.0-base/tizen-3.0-base_20161223.2/repos/arm/packages/armv7l/lldb-devel-3.8.1-2.3.armv7l.rpm
-    $TIZEN_DOWNLOAD_CMD http://download.tizen.org/releases/weekly/tizen/3.0-base/tizen-3.0-base_20161223.2/repos/arm/packages/armv7l/libuuid-2.28-1.1.armv7l.rpm
-    $TIZEN_DOWNLOAD_CMD http://download.tizen.org/releases/weekly/tizen/3.0-base/tizen-3.0-base_20161223.2/repos/arm/packages/armv7l/libuuid-devel-2.28-1.1.armv7l.rpm
-    $TIZEN_DOWNLOAD_CMD http://download.tizen.org/releases/weekly/tizen/3.0-base/tizen-3.0-base_20161223.2/repos/arm/packages/armv7l/gcc-4.9.2-2.2.armv7l.rpm
-    $TIZEN_DOWNLOAD_CMD http://download.tizen.org/releases/weekly/tizen/3.0-base/tizen-3.0-base_20161223.2/repos/arm/packages/armv7l/libgcc-4.9.2-2.2.armv7l.rpm
-    $TIZEN_DOWNLOAD_CMD http://download.tizen.org/releases/weekly/tizen/3.0-base/tizen-3.0-base_20161223.2/repos/arm/packages/armv7l/libstdc++-4.9.2-2.2.armv7l.rpm
-    $TIZEN_DOWNLOAD_CMD http://download.tizen.org/releases/weekly/tizen/3.0-base/tizen-3.0-base_20161223.2/repos/arm/packages/armv7l/libstdc++-devel-4.9.2-2.2.armv7l.rpm
-    $TIZEN_DOWNLOAD_CMD http://download.tizen.org/releases/weekly/tizen/3.0-mobile/tizen-3.0-mobile_20161223.1/repos/arm-wayland/packages/armv7l/libunwind-1.1-1.1.armv7l.rpm
-    $TIZEN_DOWNLOAD_CMD http://download.tizen.org/releases/weekly/tizen/3.0-mobile/tizen-3.0-mobile_20161223.1/repos/arm-wayland/packages/armv7l/libunwind-devel-1.1-1.1.armv7l.rpm
-    $TIZEN_DOWNLOAD_CMD http://download.tizen.org/releases/weekly/tizen/3.0-mobile/tizen-3.0-mobile_20161223.1/repos/arm-wayland/packages/armv7l/tizen-release-3.0.0-1.7.armv7l.rpm
-    # 3. for corefx
-    $TIZEN_DOWNLOAD_CMD http://download.tizen.org/releases/weekly/tizen/3.0-base/tizen-3.0-base_20161223.2/repos/arm/packages/armv7l/libcom_err-1.42.13-2.1.armv7l.rpm
-    $TIZEN_DOWNLOAD_CMD http://download.tizen.org/releases/weekly/tizen/3.0-base/tizen-3.0-base_20161223.2/repos/arm/packages/armv7l/libcom_err-devel-1.42.13-2.1.armv7l.rpm
-    $TIZEN_DOWNLOAD_CMD http://download.tizen.org/releases/weekly/tizen/3.0-mobile/tizen-3.0-mobile_20161223.1/repos/arm-wayland/packages/armv7l/gssdp-0.14.4-1.1.armv7l.rpm
-    $TIZEN_DOWNLOAD_CMD http://download.tizen.org/releases/weekly/tizen/3.0-mobile/tizen-3.0-mobile_20161223.1/repos/arm-wayland/packages/armv7l/gssdp-devel-0.14.4-1.1.armv7l.rpm
-    $TIZEN_DOWNLOAD_CMD http://download.tizen.org/releases/weekly/tizen/3.0-mobile/tizen-3.0-mobile_20161223.1/repos/arm-wayland/packages/armv7l/krb5-devel-1.10.2-3.1.armv7l.rpm
-    $TIZEN_DOWNLOAD_CMD http://download.tizen.org/releases/weekly/tizen/3.0-mobile/tizen-3.0-mobile_20161223.1/repos/arm-wayland/packages/armv7l/krb5-1.10.2-3.1.armv7l.rpm
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_BASE_ARM/lldb-3.8.1-2.7.armv7l.rpm"
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_BASE_ARM/lldb-devel-3.8.1-2.7.armv7l.rpm"
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_BASE_ARM/libuuid-2.28-8.1.armv7l.rpm"
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_BASE_ARM/libuuid-devel-2.28-8.1.armv7l.rpm"
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_BASE_ARM/libgcc-4.9.2-15.1.armv7l.rpm"
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_BASE_ARM/libstdc++-4.9.2-15.1.armv7l.rpm"
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_BASE_ARM/libstdc++-devel-4.9.2-15.1.armv7l.rpm"
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_MOBILE_ARM/libunwind-1.1-7.22.armv7l.rpm"
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_MOBILE_ARM/libunwind-devel-1.1-7.22.armv7l.rpm"
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_MOBILE_ARM/tizen-release-3.0.0-10.31.armv7l.rpm"
 
+    # 3. for corefx
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_BASE_ARM/libcom_err-1.42.13-2.8.armv7l.rpm"
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_BASE_ARM/libcom_err-devel-1.42.13-2.8.armv7l.rpm"
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_BASE_ARM/zlib-1.2.8-1.17.armv7l.rpm"
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_BASE_ARM/zlib-devel-1.2.8-1.17.armv7l.rpm"
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_BASE_ARM/libopenssl-1.0.2j-10.1.armv7l.rpm"
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_BASE_ARM/libopenssl-devel-1.0.2j-10.1.armv7l.rpm"
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_MOBILE_ARM/gssdp-0.14.4-4.2.armv7l.rpm"
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_MOBILE_ARM/gssdp-devel-0.14.4-4.2.armv7l.rpm"
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_MOBILE_ARM/krb5-1.10.2-3.1.armv7l.rpm"
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_MOBILE_ARM/krb5-devel-1.10.2-3.1.armv7l.rpm"
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_MOBILE_ARM/libcurl-7.50.2-17.2.armv7l.rpm"
+    $TIZEN_DOWNLOAD_CMD "$TIZEN_MOBILE_ARM/libcurl-devel-7.50.2-17.2.armv7l.rpm"
 }
 
 # Download files
